@@ -36,7 +36,7 @@ apt update
 apt upgrade -y
 apt dist-upgrade -y
 
-apt install vim build-essential apt-transport-https axel libsasl2-dev python-dev libldap2-dev libssl-dev kali-desktop-gnome terminator flameshot -y
+apt install vim build-essential apt-transport-https axel libsasl2-dev python-dev libldap2-dev libssl-dev kali-desktop-gnome terminator flameshot linux-headers-$(uname -r) -y
 
 apt autoremove
 
@@ -98,3 +98,4 @@ touch /home/${uservar}/.hushlogin
 echo "Done! Please reboot, login with the new user and disable direct root user login"
 echo "TODO: Add flameshot to keyboard shortcuts"
 echo "TODO: Change win/ctrl location in gnome settings"
+echo "TODO: sudo apt remove --purge lightdm"
