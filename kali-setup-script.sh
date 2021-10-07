@@ -34,7 +34,7 @@ apt update
 apt upgrade -y
 apt dist-upgrade -y
 
-apt install vim build-essential apt-transport-https axel cupp mingw32 kali-desktop-gnome powershell powershell-empire -y
+apt install vim build-essential apt-transport-https axel cupp kali-desktop-gnome -y
 
 apt autoremove
 
