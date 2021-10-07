@@ -29,6 +29,8 @@ usermod -m -d /home/$uservar $uservar
 
 passwd $uservar
 
+sed -i "s/Kali/${uservar}/" /etc/passwd
+
 # Run updates
 apt update
 apt upgrade -y
