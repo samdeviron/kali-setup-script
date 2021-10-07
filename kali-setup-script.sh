@@ -36,7 +36,7 @@ apt update
 apt upgrade -y
 apt dist-upgrade -y
 
-apt install vim build-essential apt-transport-https axel libsasl2-dev python-dev libldap2-dev libssl-dev kali-desktop-gnome -y
+apt install vim build-essential apt-transport-https axel libsasl2-dev python-dev libldap2-dev libssl-dev kali-desktop-gnome terminator -y
 
 apt autoremove
 
