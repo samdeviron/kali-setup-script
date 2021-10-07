@@ -76,7 +76,7 @@ runuser -l $uservar -c "mkdir /opt/tunnel && git clone https://github.com/sensep
 apt install python3-pip -y
 runuser -l $uservar -c "git clone https://github.com/SecureAuthCorp/impacket.git /opt/impacket"
 pip3 install -r /opt/impacket/requirements.txt
-python3 /opt/impacket/setup.py install
+cd /opt/impacket && python3 /opt/impacket/setup.py install
 
 # Set .zshrc settings
 echo "alias ls='ls -lha'" >> /home/${uservar}/.zshrc
@@ -87,3 +87,5 @@ echo "alias empire-client='cd /opt/empire && /opt/empire/ps-empire client'" >> /
 echo "export PATH='/opt/tunnel/reGeorg:/opt/impacket/impacket:/opt/empire:/opt/windapsearch:/opt/windows-exploit-suggester:/opt/wes-ng:$PATH'" >> /home/${uservar}/.zshrc
 
 touch /home/${uservar}/.hushlogin
+
+echo "Done! Please reboot, login with the new user and disable direct root user login"
