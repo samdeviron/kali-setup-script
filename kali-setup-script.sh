@@ -52,7 +52,7 @@ apt install sublime-text -y
 
 # Install latest burp suite
 runuser -l $uservar -c "cd /home/${uservar}/Downloads && curl --header 'Host: portswigger.net' --user-agent 'Mozilla/5.0 (X11; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8' --header 'Accept-Language: en-US,en;q=0.5' --referer 'https://portswigger.net/burp/releases/professional-community-2021-8-4' --cookie 'SessionId=CfDJ8E%2Bwz0j835xPn7BOifDmT9Ll3pv0cz33oybtmJQgyPs4JVEBAgLDF0DHOaNQiHWWZfwy6gOSv8eJUg43TWm%2FzD6j459errefShcsjLiU7%2Bylxn%2B97nxa%2B3lR8YNKGFVRJkzOSnW6Qqy0aCIncFnjabmVrGtp1kqCMOz2hkiAIfVc' --header 'Upgrade-Insecure-Requests: 1' --header 'Sec-Fetch-Dest: document' --header 'Sec-Fetch-Mode: navigate' --header 'Sec-Fetch-Site: same-origin' --header 'Sec-Fetch-User: ?1' 'https://portswigger.net/burp/releases/download?product=community&version=2021.8.4&type=Linux' --output 'burpsuite_community_linux_v2021_8_4.sh'"
-runuser -l $uservar -c "cd /home/${uservar}/Downloads && /home/${uservar}/Downloads/burpsuite_community_linux_v2021_8_4.sh"
+runuser -l $uservar -c "chmod +x /home/${uservar}/Downloads/burpsuite_community_linux_v2021_8_4.sh && /home/${uservar}/Downloads/burpsuite_community_linux_v2021_8_4.sh"
 
 # Install tmux logging
 runuser -l $uservar -c "cd /opt && mkdir tmux-logging"
