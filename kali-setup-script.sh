@@ -42,7 +42,7 @@ apt autoremove
 runuser -l $uservar -c "wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash"
 runuser -l $uservar -c "cd /home/${uservar}/Downloads && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 
-apt install ./google-chrome-stable_current_amd64.deb -y
+apt install /home/$uservar/Downloads/google-chrome-stable_current_amd64.deb -y
 
 # Install Sublime Text
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
