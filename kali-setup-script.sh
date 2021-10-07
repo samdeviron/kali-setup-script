@@ -95,7 +95,6 @@ echo "export PATH='/opt/tunnel/reGeorg:/opt/impacket/impacket:/opt/empire:/opt/w
 
 touch /home/${uservar}/.hushlogin
 
-
-
 echo "Done! Please reboot, login with the new user and disable direct root user login"
 echo "TODO: Add flameshot to keyboard shortcuts"
+echo "TODO: Change win/ctrl location in gnome settings"
