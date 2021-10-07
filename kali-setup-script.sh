@@ -36,7 +36,7 @@ apt update
 apt upgrade -y
 apt dist-upgrade -y
 
-apt install vim build-essential apt-transport-https axel libsasl2-dev python-dev libldap2-dev libssl-dev kali-desktop-gnome terminator -y
+apt install vim build-essential apt-transport-https axel libsasl2-dev python-dev libldap2-dev libssl-dev kali-desktop-gnome terminator flameshot -y
 
 apt autoremove
 
@@ -80,6 +80,11 @@ runuser -l $uservar -c "git clone https://github.com/SecureAuthCorp/impacket.git
 pip3 install -r /opt/impacket/requirements.txt
 cd /opt/impacket && python3 /opt/impacket/setup.py install
 
+# Install Pcloud
+runuser -l $uservar -c "mkdir /home/${uservar}/Applications && cd /home/${uservar}/Applications && wget https://p-lux3.pcloud.com/cBZsfshJnZQwH1ExZZZubbov7Z2ZZH30ZkZkkypVZBkZapZFRZtzZQzZ3zZrkZ2zZc7ZWRZsFZTJZd5ZY7Z0FAtXZ8P4pu9lCmV0v3vR8qRq6vRVi1OzX/pcloud"
+ runuser -l $uservar -c "chmod +x /home/${uservar}/Applications/pcloud && /home/${uservar}/Applications/pcloud"
+
+
 # Set .zshrc settings
 echo "alias ls='ls -lha'" >> /home/${uservar}/.zshrc
 echo "export HISTCONTROL=ignoredups" >> /home/${uservar}/.zshrc
@@ -90,4 +95,7 @@ echo "export PATH='/opt/tunnel/reGeorg:/opt/impacket/impacket:/opt/empire:/opt/w
 
 touch /home/${uservar}/.hushlogin
 
+
+
 echo "Done! Please reboot, login with the new user and disable direct root user login"
+echo "TODO: Add flameshot to keyboard shortcuts"
