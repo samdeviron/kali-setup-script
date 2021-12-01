@@ -36,7 +36,7 @@ apt update
 apt upgrade -y
 apt dist-upgrade -y
 
-apt install vim build-essential apt-transport-https axel libsasl2-dev seclists python2-dev libldap2-dev libssl-dev kali-desktop-gnome terminator flameshot linux-headers-$(uname -r) -y
+apt install vim build-essential apt-transport-https axel libsasl2-dev seclists gobuster python2-dev libldap2-dev libssl-dev kali-desktop-gnome terminator flameshot linux-headers-$(uname -r) -y
 
 apt autoremove
 
