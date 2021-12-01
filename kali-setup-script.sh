@@ -95,7 +95,7 @@ echo "export PATH='/opt/tunnel/reGeorg:/opt/impacket/impacket:/opt/empire:/opt/w
 
 touch /home/${uservar}/.hushlogin
 
-echo "Done! Please reboot, login with the new user and disable direct root user login" | tee ~/Desktop/todo.txt
-echo "TODO: Add flameshot to keyboard shortcuts" | tee ~/Desktop/todo.txt
-echo "TODO: Change win/ctrl location in gnome settings" | tee ~/Desktop/todo.txt
-echo "TODO: sudo apt-get purge --auto-remove kali-desktop-xfce" | tee ~/Desktop/todo.txt
+echo "Done! Please reboot, login with the new user and disable direct root user login" | tee /home/$uservar/Desktop/todo.txt
+echo "TODO: Add flameshot to keyboard shortcuts" | tee /home/$uservar/Desktop/todo.txt
+echo "TODO: Change win/ctrl location in gnome settings" | tee /home/$uservar/Desktop/todo.txt
+echo "TODO: sudo apt-get purge --auto-remove kali-desktop-xfce" | tee /home/$uservar/Desktop/todo.txt
