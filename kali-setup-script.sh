@@ -40,11 +40,10 @@ apt install vim build-essential apt-transport-https axel libsasl2-dev seclists g
 
 apt autoremove
 
-# Install Joplin & Google Chrome
-runuser -l $uservar -c "wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash"
-runuser -l $uservar -c "cd /home/${uservar}/Downloads && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
-
-apt install /home/$uservar/Downloads/google-chrome-stable_current_amd64.deb -y
+# Install tmux logging
+runuser -l $uservar -c "cd /opt && mkdir tmux-logging"
+chown -R $uservar: /opt
+git clone https://github.com/tmux-plugins/tmux-logging.git /opt/tmux-logging
 
 # Install Sublime Text
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
@@ -52,16 +51,11 @@ echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sou
 apt update
 apt install sublime-text -y
 
-# Install latest burp suite
-runuser -l $uservar -c "cd /home/${uservar}/Downloads && curl --header 'Host: portswigger.net' --user-agent 'Mozilla/5.0 (X11; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8' --header 'Accept-Language: en-US,en;q=0.5' --referer 'https://portswigger.net/burp/releases/professional-community-2021-8-4' --cookie 'SessionId=CfDJ8E%2Bwz0j835xPn7BOifDmT9Ll3pv0cz33oybtmJQgyPs4JVEBAgLDF0DHOaNQiHWWZfwy6gOSv8eJUg43TWm%2FzD6j459errefShcsjLiU7%2Bylxn%2B97nxa%2B3lR8YNKGFVRJkzOSnW6Qqy0aCIncFnjabmVrGtp1kqCMOz2hkiAIfVc' --header 'Upgrade-Insecure-Requests: 1' --header 'Sec-Fetch-Dest: document' --header 'Sec-Fetch-Mode: navigate' --header 'Sec-Fetch-Site: same-origin' --header 'Sec-Fetch-User: ?1' 'https://portswigger.net/burp/releases/download?product=community&version=2021.8.4&type=Linux' --output 'burpsuite_community_linux_v2021_8_4.sh'"
-runuser -l $uservar -c "chmod +x /home/${uservar}/Downloads/burpsuite_community_linux_v2021_8_4.sh && /home/${uservar}/Downloads/burpsuite_community_linux_v2021_8_4.sh"
+# Install Joplin & Google Chrome
+runuser -l $uservar -c "wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash"
+runuser -l $uservar -c "cd /home/${uservar}/Downloads && wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 
-# Install tmux logging
-runuser -l $uservar -c "cd /opt && mkdir tmux-logging"
-chown -R $uservar: /opt
-git clone https://github.com/tmux-plugins/tmux-logging.git /opt/tmux-logging
-
-runuser -l $uservar -c "cd /home/${uservar} && wget https://raw.githubusercontent.com/samdeviron/tmux.conf/main/.tmux.conf"
+apt install /home/$uservar/Downloads/google-chrome-stable_current_amd64.deb -y
 
 # Install /opt tools
 runuser -l $uservar -c "cd /opt"
@@ -80,10 +74,24 @@ runuser -l $uservar -c "git clone https://github.com/SecureAuthCorp/impacket.git
 pip3 install -r /opt/impacket/requirements.txt
 cd /opt/impacket && python3 /opt/impacket/setup.py install
 
-# Install Pcloud
-runuser -l $uservar -c "mkdir /home/${uservar}/Applications && cd /home/${uservar}/Applications && wget https://p-lux3.pcloud.com/cBZsfshJnZQwH1ExZZZubbov7Z2ZZH30ZkZkkypVZBkZapZFRZtzZQzZ3zZrkZ2zZc7ZWRZsFZTJZd5ZY7Z0FAtXZ8P4pu9lCmV0v3vR8qRq6vRVi1OzX/pcloud"
- runuser -l $uservar -c "chmod +x /home/${uservar}/Applications/pcloud && /home/${uservar}/Applications/pcloud"
+# Install latest burp suite
+runuser -l $uservar -c "cd /home/${uservar}/Downloads && curl --header 'Host: portswigger.net' --user-agent 'Mozilla/5.0 (X11; Linux x86_64; rv:93.0) Gecko/20100101 Firefox/93.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8' --header 'Accept-Language: en-US,en;q=0.5' --referer 'https://portswigger.net/burp/releases/professional-community-2021-8-4' --cookie 'SessionId=CfDJ8E%2Bwz0j835xPn7BOifDmT9Ll3pv0cz33oybtmJQgyPs4JVEBAgLDF0DHOaNQiHWWZfwy6gOSv8eJUg43TWm%2FzD6j459errefShcsjLiU7%2Bylxn%2B97nxa%2B3lR8YNKGFVRJkzOSnW6Qqy0aCIncFnjabmVrGtp1kqCMOz2hkiAIfVc' --header 'Upgrade-Insecure-Requests: 1' --header 'Sec-Fetch-Dest: document' --header 'Sec-Fetch-Mode: navigate' --header 'Sec-Fetch-Site: same-origin' --header 'Sec-Fetch-User: ?1' 'https://portswigger.net/burp/releases/download?product=community&version=2021.8.4&type=Linux' --output 'burpsuite_community_linux_v2021_8_4.sh'"
+runuser -l $uservar -c "chmod +x /home/${uservar}/Downloads/burpsuite_community_linux_v2021_8_4.sh && /home/${uservar}/Downloads/burpsuite_community_linux_v2021_8_4.sh"
 
+runuser -l $uservar -c "cd /home/${uservar} && wget https://raw.githubusercontent.com/samdeviron/tmux.conf/main/.tmux.conf"
+
+# Install Pcloud
+#runuser -l $uservar -c "mkdir /home/${uservar}/Applications"
+#runuser -l $uservar -c "cd /home/${uservar}/Applications && wget https://p-lux3.pcloud.com/cBZsfshJnZQwH1ExZZZubbov7Z2ZZH30ZkZkkypVZBkZapZFRZtzZQzZ3zZrkZ2zZc7ZWRZsFZTJZd5ZY7Z0FAtXZ8P4pu9lCmV0v3vR8qRq6vRVi1OzX/pcloud"
+#runuser -l $uservar -c "chmod +x /home/${uservar}/Applications/pcloud && /home/${uservar}/Applications/pcloud"
+
+# Set .bashrc settings
+echo "alias ls='ls -lha'" >> /home/${uservar}/.bashrc
+echo "export HISTCONTROL=ignoredups" >> /home/${uservar}/.bashrc
+echo "export HISTIGNORE='&:ls:[bf]g:exit:history'" >> /home/${uservar}/.bashrc
+echo "alias empire-server='cd /opt/empire && /opt/empire/ps-empire server'" >> /home/${uservar}/.bashrc
+echo "alias empire-client='cd /opt/empire && /opt/empire/ps-empire client'" >> /home/${uservar}/.bashrc
+echo "export PATH='/opt/tunnel/reGeorg:/opt/impacket/impacket:/opt/empire:/opt/windapsearch:/opt/windows-exploit-suggester:/opt/wes-ng:$PATH'" >> /home/${uservar}/.bashrc
 
 # Set .zshrc settings
 echo "alias ls='ls -lha'" >> /home/${uservar}/.zshrc
