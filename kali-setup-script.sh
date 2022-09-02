@@ -80,6 +80,12 @@ runuser -l $uservar -c "chmod +x /home/${uservar}/Downloads/burpsuite_community_
 
 runuser -l $uservar -c "cd /home/${uservar} && wget https://raw.githubusercontent.com/samdeviron/tmux.conf/main/.tmux.conf"
 
+# Install VSCode
+
+runuser -l $uservar -c "cd /home/${uservar}/Downloads && wget https://az764295.vo.msecnd.net/stable/784b0177c56c607789f9638da7b6bf3230d47a8c/code_1.71.0-1662018389_amd64.deb"
+cd /home/${uservar}/Downloads
+apt install ./code_*
+
 # Install Pcloud
 #runuser -l $uservar -c "mkdir /home/${uservar}/Applications"
 #runuser -l $uservar -c "cd /home/${uservar}/Applications && wget https://p-lux3.pcloud.com/cBZsfshJnZQwH1ExZZZubbov7Z2ZZH30ZkZkkypVZBkZapZFRZtzZQzZ3zZrkZ2zZc7ZWRZsFZTJZd5ZY7Z0FAtXZ8P4pu9lCmV0v3vR8qRq6vRVi1OzX/pcloud"
