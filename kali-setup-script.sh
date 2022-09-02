@@ -84,7 +84,7 @@ runuser -l $uservar -c "cd /home/${uservar} && wget https://raw.githubuserconten
 
 runuser -l $uservar -c "cd /home/${uservar}/Downloads && wget https://az764295.vo.msecnd.net/stable/784b0177c56c607789f9638da7b6bf3230d47a8c/code_1.71.0-1662018389_amd64.deb"
 cd /home/${uservar}/Downloads
-apt install ./code_*
+apt install ./code_* -y
 
 # Install Pcloud
 #runuser -l $uservar -c "mkdir /home/${uservar}/Applications"
