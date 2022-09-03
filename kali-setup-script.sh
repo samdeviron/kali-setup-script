@@ -138,6 +138,8 @@ echo "Would you like to create user? (answer no to install tools only)"
 read -p 'Create user? (Y/N): ' create_user_bool
 if [[ create_user_bool == "Y" ]]; then
    create_user
+else
+   uservar=$(whoami)
 fi
 
 install_essentials
