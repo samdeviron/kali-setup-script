@@ -117,6 +117,7 @@ install_pcloud() {
 
 set_bashrc() {
    # Set .bashrc settings
+   echo "" >> /home/${uservar}/.bashrc
    echo "alias ls='ls -lha'" >> /home/${uservar}/.bashrc
    echo "export HISTCONTROL=ignoredups" >> /home/${uservar}/.bashrc
    echo "export HISTIGNORE='&:ls:[bf]g:exit:history'" >> /home/${uservar}/.bashrc
@@ -127,6 +128,7 @@ set_bashrc() {
 
 set_zshrc() {
    # Set .zshrc settings
+   echo "" >> /home/${uservar}/.zshrc
    echo "alias ls='ls -lha'" >> /home/${uservar}/.zshrc
    echo "export HISTCONTROL=ignoredups" >> /home/${uservar}/.zshrc
    echo "export HISTIGNORE='&:ls:[bf]g:exit:history'" >> /home/${uservar}/.zshrc
