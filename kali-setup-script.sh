@@ -142,17 +142,96 @@ else
    uservar=$(whoami)
 fi
 
-install_essentials
-install_tmux
-install_sublime
-install_joplin
-install_chrome
-install_opt
-install_burp
-install_vscode
-#install_pcloud
-set_bashrc
-set_zshrc
+# Install everything?
+echo "Would you like to install everything?"
+echo "This currently includes: essentials, tmux, sublime, joplin, chrome, opt tools, burp, vscode and bashrc & zshrc files"
+read -p 'Install everything? (Y/N): ' create_everything_bool
+if [[ create_everything_bool == "Y" ]]; then
+   install_essentials
+   install_tmux
+   install_sublime
+   install_joplin
+   install_chrome
+   install_opt
+   install_burp
+   install_vscode
+   #install_pcloud
+   set_bashrc
+   set_zshrc
+else
+   # Install essentials?
+   echo "Would you like to install essentials?"
+   read -p 'Install essentials? (Y/N): ' install_essentials_bool
+   
+   # Install tmux?
+   echo "Would you like to install tmux?"
+   read -p 'Install tmux? (Y/N): ' install_tmux_bool
+   
+   # Install sublime?
+   echo "Would you like to install sublime?"
+   read -p 'Install sublime? (Y/N): ' install_sublime_bool
+  
+   # Install joplin?
+   echo "Would you like to install joplin?"
+   read -p 'Install joplin? (Y/N): ' install_joplin_bool
+   
+    # Install chrome?
+   echo "Would you like to install chrome?"
+   read -p 'Install chrome? (Y/N): ' install_chrome_bool
+   
+    # Install opt?
+   echo "Would you like to install opt tools?"
+   read -p 'Install opt tools? (Y/N): ' install_opt_bool
+  
+    # Install burp?
+   echo "Would you like to install burp?"
+   read -p 'Install burp? (Y/N): ' install_burp_bool
+   
+   # Install vscode?
+   echo "Would you like to install vscode?"
+   read -p 'Install vscode? (Y/N): ' install_vscode_bool
+   
+    # Install bashrc and zshrc?
+   echo "Would you like to install bashrc and zshrc?"
+   read -p 'Install bashrc and zshrc? (Y/N): ' install_rc_bool
+  
+   if [[ install_essentials_bool == "Y" ]]; then
+      install_essentials
+   fi
+   
+    if [[ install_tmux_bool == "Y" ]]; then
+      install_tmux
+   fi
+   
+    if [[ install_sublime_bool == "Y" ]]; then
+      install_sublime
+   fi
+   
+    if [[ install_joplin_bool == "Y" ]]; then
+      install_joplin
+   fi
+   
+    if [[ install_chrome_bool == "Y" ]]; then
+      install_chrome
+   fi
+   
+    if [[ install_opt_bool == "Y" ]]; then
+      install_opt
+   fi
+   
+    if [[ install_burp_bool == "Y" ]]; then
+      install_burp
+   fi
+     
+    if [[ install_vscode_bool == "Y" ]]; then
+      install_vscode
+   fi
+    
+    if [[ install_rc_bool == "Y" ]]; then
+      set_bashrc
+      set_zshrc
+   fi
+fi
 
 touch /home/${uservar}/.hushlogin
 
