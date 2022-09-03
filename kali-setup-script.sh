@@ -139,7 +139,7 @@ read -p 'Create user? (Y/N): ' create_user_bool
 if [[ create_user_bool == "Y" ]]; then
    create_user
 else
-   uservar=$(whoami)
+   uservar=$SUDO_USER
 fi
 
 # Install everything?
