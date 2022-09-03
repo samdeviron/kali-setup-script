@@ -75,6 +75,7 @@ install_chrome() {
 install_opt() {
    # Install /opt tools
    runuser -l $uservar -c "cd /opt"
+   chown -R $uservar: /opt
    cd /opt
    runuser -l $uservar -c "git clone https://github.com/AonCyberLabs/Windows-Exploit-Suggester.git /opt/windows-exploit-suggester"
    runuser -l $uservar -c "git clone https://github.com/bitsadmin/wesng.git /opt/wesng"
@@ -82,7 +83,8 @@ install_opt() {
    runuser -l $uservar -c "git clone https://github.com/BC-SECURITY/Empire.git /opt/empire"
    runuser -l $uservar -c "git clone https://github.com/ropnop/windapsearch.git /opt/windapsearch" 
    runuser -l $uservar -c "pip install python-ldap" 
-   runuser -l $uservar -c "mkdir /opt/tunnel && git clone https://github.com/sensepost/reGeorg.git /opt/tunnel/reGeorg" 
+   runuser -l $uservar -c "mkdir /opt/tunnel && git clone https://github.com/sensepost/reGeorg.git /opt/tunnel/reGeorg"
+   chown -R $uservar: /opt
 }
 
 install_impacket() {
