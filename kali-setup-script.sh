@@ -136,21 +136,21 @@ set_zshrc() {
 # Create a user?
 echo "Would you like to create user? (answer no to install tools only)"
 read -p 'Create user? (Y/N): ' create_user_bool
-if [[ $(create_user_bool) == "Y" ]]; then
-   create_user()
+if [[ create_user_bool == "Y" ]]; then
+   create_user
 fi
 
-install_essentials()
-install_tmux()
-install_sublime()
-install_joplin()
-install_chrome()
-install_opt()
-install_burp()
-install_vscode()
-#install_pcloud()
-set_bashrc()
-set_zshrc()
+install_essentials
+install_tmux
+install_sublime
+install_joplin
+install_chrome
+install_opt
+install_burp
+install_vscode
+#install_pcloud
+set_bashrc
+set_zshrc
 
 touch /home/${uservar}/.hushlogin
 
