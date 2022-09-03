@@ -144,6 +144,9 @@ else
    uservar=$SUDO_USER
 fi
 
+# User
+echo "You are currently running this script as: $uservar"
+
 # Install everything?
 echo "Would you like to install everything?"
 echo "This currently includes: essentials, tmux, sublime, joplin, chrome, opt tools, burp, vscode and bashrc & zshrc files"
