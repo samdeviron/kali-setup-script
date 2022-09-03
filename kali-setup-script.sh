@@ -151,7 +151,7 @@ echo "You are currently running this script as: $uservar"
 echo "Would you like to install everything?"
 echo "This currently includes: essentials, tmux, sublime, joplin, chrome, opt tools, burp, vscode and bashrc & zshrc files"
 read -p 'Install everything? (Y/N): ' create_everything_bool
-if [[ create_everything_bool == "Y" ]]; then
+if [[ $create_everything_bool == "Y" ]]; then
    install_essentials
    install_tmux
    install_sublime
@@ -200,39 +200,39 @@ else
    echo "Would you like to install bashrc and zshrc?"
    read -p 'Install bashrc and zshrc? (Y/N): ' install_rc_bool
   
-   if [[ install_essentials_bool == "Y" ]]; then
+   if [[ $install_essentials_bool == "Y" ]]; then
       install_essentials
    fi
    
-    if [[ install_tmux_bool == "Y" ]]; then
+    if [[ $install_tmux_bool == "Y" ]]; then
       install_tmux
    fi
    
-    if [[ install_sublime_bool == "Y" ]]; then
+    if [[ $install_sublime_bool == "Y" ]]; then
       install_sublime
    fi
    
-    if [[ install_joplin_bool == "Y" ]]; then
+    if [[ $install_joplin_bool == "Y" ]]; then
       install_joplin
    fi
    
-    if [[ install_chrome_bool == "Y" ]]; then
+    if [[ $install_chrome_bool == "Y" ]]; then
       install_chrome
    fi
    
-    if [[ install_opt_bool == "Y" ]]; then
+    if [[ $install_opt_bool == "Y" ]]; then
       install_opt
    fi
    
-    if [[ install_burp_bool == "Y" ]]; then
+    if [[ $install_burp_bool == "Y" ]]; then
       install_burp
    fi
      
-    if [[ install_vscode_bool == "Y" ]]; then
+    if [[ $install_vscode_bool == "Y" ]]; then
       install_vscode
    fi
     
-    if [[ install_rc_bool == "Y" ]]; then
+    if [[ $install_rc_bool == "Y" ]]; then
       set_bashrc
       set_zshrc
    fi
