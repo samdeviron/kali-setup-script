@@ -135,8 +135,12 @@ set_zshrc() {
    echo "export PATH='/opt/tunnel/reGeorg:/opt/impacket/impacket:/opt/empire:/opt/windapsearch:/opt/windows-exploit-suggester:/opt/wes-ng:$PATH'" >> /home/${uservar}/.zshrc
 }
 
-
-create_user()
+# Create a user?
+echo "Would you like to create user? (answer no to install tools only)"
+read -p 'Create user? (Y/N): ' create_user_bool
+if [[ $(create_user_bool) == "Y" ]]; then
+   create_user()
+fi\
 install_essentials()
 install_tmux()
 install_sublime()
