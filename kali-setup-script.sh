@@ -33,8 +33,6 @@ create_user() {
    sed -i "s/Kali/${uservar}/" /etc/passwd
 }
 
-
-
 install_essentials() {
    # Run updates
    apt update
@@ -141,6 +139,7 @@ read -p 'Create user? (Y/N): ' create_user_bool
 if [[ $(create_user_bool) == "Y" ]]; then
    create_user()
 fi
+
 install_essentials()
 install_tmux()
 install_sublime()
