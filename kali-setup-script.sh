@@ -91,7 +91,7 @@ install_impacket() {
    # Install Impacket
    apt install python3-pip -y
    runuser -l $uservar -c "git clone https://github.com/SecureAuthCorp/impacket.git /opt/impacket"
-   pip3 install -r /opt/impacket/requirements.txt
+   runuser -l $uservar -c "pip3 install -r /opt/impacket/requirements.txt"
    cd /opt/impacket && python3 /opt/impacket/setup.py install
 }
 
