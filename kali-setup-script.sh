@@ -160,6 +160,7 @@ if [[ $create_everything_bool == "Y" ]]; then
    install_joplin
    install_chrome
    install_opt
+   install_impacket
    install_burp
    install_vscode
    #install_pcloud
@@ -189,6 +190,10 @@ else
     # Install opt?
    echo "Would you like to install opt tools?"
    read -p 'Install opt tools? (Y/N): ' install_opt_bool
+   
+   # Install opt?
+   echo "Would you like to install impacket?"
+   read -p 'Install impacket tools? (Y/N): ' install_impacket_bool
   
     # Install burp?
    echo "Would you like to install burp?"
@@ -224,6 +229,10 @@ else
    
     if [[ $install_opt_bool == "Y" ]]; then
       install_opt
+   fi
+   
+   if [[ $install_impacket_bool == "Y" ]]; then
+      install_impacket
    fi
    
     if [[ $install_burp_bool == "Y" ]]; then
