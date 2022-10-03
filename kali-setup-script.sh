@@ -94,7 +94,7 @@ install_sharpshooter() {
    apt install python-setuptools
    git clone https://github.com/mdsecactivebreach/SharpShooter.git
    cd SharpShooter
-   pip install -r requirements
+   pip install -r requirements.txt
 }
 
 install_impacket() {
