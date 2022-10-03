@@ -39,7 +39,7 @@ install_essentials() {
    apt upgrade -y
    apt dist-upgrade -y
 
-   apt install vim build-essential apt-transport-https axel libsasl2-dev seclists gobuster python2-dev python2 libldap2-dev libssl-dev kali-desktop-gnome terminator flameshot linux-headers-$(uname -r) xclip virtualenv python3-autopep8 python2-setuptools-whl python2-setuptools-whl -y
+   apt install vim build-essential apt-transport-https axel libsasl2-dev seclists gobuster python2-dev python2 libldap2-dev libssl-dev kali-desktop-gnome terminator flameshot linux-headers-$(uname -r) xclip -y
    curl https://bootstrap.pypa.io/pip/2.7/get-pip.py | python2
    apt autoremove
 }
@@ -82,10 +82,23 @@ install_opt() {
    runuser -l $uservar -c "git clone https://github.com/galkan/crowbar.git /opt/crowbar"
    runuser -l $uservar -c "git clone https://github.com/BC-SECURITY/Empire.git /opt/empire"
    runuser -l $uservar -c "git clone https://github.com/ropnop/windapsearch.git /opt/windapsearch"
-   runuser -l $uservar -c "git clone https://github.com/mdsecactivebreach/SharpShooter.git && cd SharpShooter && pip2 install -r requirements.txt && cd .."
    runuser -l $uservar -c "pip install python-ldap" 
    runuser -l $uservar -c "mkdir /opt/tunnel && git clone https://github.com/sensepost/reGeorg.git /opt/tunnel/reGeorg"
    chown -R $uservar: /opt
+}
+
+install_sharpshooter() {
+   apt-get install virtualenv python3-autopep8 python2-setuptools-whl python2-setuptools-whl -y
+   cd /opt/; git clone https://github.com/mdsecactivebreach/SharpShooter.git
+   cd SharpShooter
+   autopep8 -i /opt/SharpShooter/modules/excel4.py
+   virtualenv sharpshooter-venv -p $(which python2)
+   source sharpshooter-venv/bin/activate
+   curl https://bootstrap.pypa.io/pip/2.7/get-pip.py | python
+   pip install -r requirements.txt
+   echo "alias sharpshooter='source /opt/SharpShooter/sharpshooter-venv/bin/activate; python /opt/SharpShooter/sharpShooter.py'" >> /home/${uservar}/.bashrc
+   echo "alias sharpshooter='source /opt/SharpShooter/sharpshooter-venv/bin/activate; python /opt/SharpShooter/sharpShooter.py'" >> /home/${uservar}/.zshrc
+   source sharpshooter-venv/bin/deactivate
 }
 
 install_impacket() {
@@ -161,6 +174,7 @@ if [[ $create_everything_bool == "Y" ]]; then
    install_joplin
    install_chrome
    install_opt
+   install_sharpshooter
    install_impacket
    install_burp
    install_vscode
