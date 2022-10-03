@@ -98,7 +98,7 @@ install_sharpshooter() {
    pip install -r requirements.txt
    echo "alias sharpshooter='source /opt/SharpShooter/sharpshooter-venv/bin/activate; python /opt/SharpShooter/SharpShooter.py'" >> /home/${uservar}/.bashrc
    echo "alias sharpshooter='source /opt/SharpShooter/sharpshooter-venv/bin/activate; python /opt/SharpShooter/SharpShooter.py'" >> /home/${uservar}/.zshrc
-   source sharpshooter-venv/bin/deactivate
+   deactivate
 }
 
 install_impacket() {
