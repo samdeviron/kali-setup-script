@@ -136,7 +136,8 @@ set_bashrc() {
    echo "export HISTIGNORE='&:ls:[bf]g:exit:history'" >> /home/${uservar}/.bashrc
    echo "alias empire-server='cd /opt/empire && /opt/empire/ps-empire server'" >> /home/${uservar}/.bashrc
    echo "alias empire-client='cd /opt/empire && /opt/empire/ps-empire client'" >> /home/${uservar}/.bashrc
-   echo "export PATH='/opt/tunnel/reGeorg:/opt/impacket/impacket:/opt/empire:/opt/windapsearch:/opt/windows-exploit-suggester:/opt/wes-ng:/opt/SharpShooter:$PATH'" >> /home/${uservar}/.bashrc
+   echo "alias sharpshooter='cd /opt/SharpShooter && python2 SharpShooter.py'" >> /home/${uservar}/.bashrc
+   echo "export PATH='/opt/tunnel/reGeorg:/opt/impacket/impacket:/opt/empire:/opt/windapsearch:/opt/windows-exploit-suggester:/opt/wes-ng:$PATH'" >> /home/${uservar}/.bashrc
 }
 
 set_zshrc() {
@@ -147,7 +148,8 @@ set_zshrc() {
    echo "export HISTIGNORE='&:ls:[bf]g:exit:history'" >> /home/${uservar}/.zshrc
    echo "alias empire-server='cd /opt/empire && /opt/empire/ps-empire server'" >> /home/${uservar}/.zshrc
    echo "alias empire-client='cd /opt/empire && /opt/empire/ps-empire client'" >> /home/${uservar}/.zshrc
-   echo "export PATH='/opt/tunnel/reGeorg:/opt/impacket/impacket:/opt/empire:/opt/windapsearch:/opt/windows-exploit-suggester:/opt/wes-ng:/opt/SharpShooter:$PATH'" >> /home/${uservar}/.zshrc
+   echo "alias sharpshooter='cd /opt/SharpShooter && python2 SharpShooter.py'" >> /home/${uservar}/.zshrc
+   echo "export PATH='/opt/tunnel/reGeorg:/opt/impacket/impacket:/opt/empire:/opt/windapsearch:/opt/windows-exploit-suggester:/opt/wes-ng:$PATH'" >> /home/${uservar}/.zshrc
 }
 
 # Create a user?
