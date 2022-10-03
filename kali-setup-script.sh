@@ -88,18 +88,13 @@ install_opt() {
 }
 
 install_sharpshooter() {
-   apt-get install virtualenv python3-autopep8 python2-setuptools-whl python2-setuptools-whl -y
-   cd /opt/; git clone https://github.com/mdsecactivebreach/SharpShooter.git
+   cd /opt
+   curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py # Fetch get-pip.py for python 2.7
+   python2 get-pip.py
+   apt install python-setuptools
+   git clone https://github.com/mdsecactivebreach/SharpShooter.git
    cd SharpShooter
-   autopep8 -i /opt/SharpShooter/modules/excel4.py
-   virtualenv sharpshooter-venv -p $(which python2)
-   source sharpshooter-venv/bin/activate
-   curl https://bootstrap.pypa.io/pip/2.7/get-pip.py | python
-   pip install -r requirements.txt
-   echo "alias sharpshooter='source /opt/SharpShooter/sharpshooter-venv/bin/activate; python /opt/SharpShooter/SharpShooter.py'" >> /home/${uservar}/.bashrc
-   echo "alias sharpshooter='source /opt/SharpShooter/sharpshooter-venv/bin/activate; python /opt/SharpShooter/SharpShooter.py'" >> /home/${uservar}/.zshrc
-   deactivate
-   chown -R $uservar: /opt
+   pip install -r requirements
 }
 
 install_impacket() {
@@ -138,7 +133,7 @@ set_bashrc() {
    echo "export HISTIGNORE='&:ls:[bf]g:exit:history'" >> /home/${uservar}/.bashrc
    echo "alias empire-server='cd /opt/empire && /opt/empire/ps-empire server'" >> /home/${uservar}/.bashrc
    echo "alias empire-client='cd /opt/empire && /opt/empire/ps-empire client'" >> /home/${uservar}/.bashrc
-   echo "export PATH='/opt/tunnel/reGeorg:/opt/impacket/impacket:/opt/empire:/opt/windapsearch:/opt/windows-exploit-suggester:/opt/wes-ng:$PATH'" >> /home/${uservar}/.bashrc
+   echo "export PATH='/opt/tunnel/reGeorg:/opt/impacket/impacket:/opt/empire:/opt/windapsearch:/opt/windows-exploit-suggester:/opt/wes-ng:/opt/SharpShooter:$PATH'" >> /home/${uservar}/.bashrc
 }
 
 set_zshrc() {
@@ -149,7 +144,7 @@ set_zshrc() {
    echo "export HISTIGNORE='&:ls:[bf]g:exit:history'" >> /home/${uservar}/.zshrc
    echo "alias empire-server='cd /opt/empire && /opt/empire/ps-empire server'" >> /home/${uservar}/.zshrc
    echo "alias empire-client='cd /opt/empire && /opt/empire/ps-empire client'" >> /home/${uservar}/.zshrc
-   echo "export PATH='/opt/tunnel/reGeorg:/opt/impacket/impacket:/opt/empire:/opt/windapsearch:/opt/windows-exploit-suggester:/opt/wes-ng:$PATH'" >> /home/${uservar}/.zshrc
+   echo "export PATH='/opt/tunnel/reGeorg:/opt/impacket/impacket:/opt/empire:/opt/windapsearch:/opt/windows-exploit-suggester:/opt/wes-ng:/opt/SharpShooter:$PATH'" >> /home/${uservar}/.zshrc
 }
 
 # Create a user?
