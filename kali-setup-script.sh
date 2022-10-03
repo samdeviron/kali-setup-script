@@ -96,6 +96,8 @@ install_sharpshooter() {
    cd SharpShooter
    pip install -r requirements.txt
    chown -R $uservar: /opt
+   chmod +x /opt/SharpShooter/SharpShooter.py
+   sed -i "1s/.*/#! \/usr\/bin\/python2/" /opt/SharpShooter/SharpShooter.py
 }
 
 install_impacket() {
