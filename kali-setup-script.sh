@@ -39,8 +39,8 @@ install_essentials() {
    apt upgrade -y
    apt dist-upgrade -y
 
-   apt install vim build-essential apt-transport-https axel libsasl2-dev seclists gobuster python2-dev libldap2-dev libssl-dev kali-desktop-gnome terminator flameshot linux-headers-$(uname -r) xclip python-pip python3-pip -y
-
+   apt install vim build-essential apt-transport-https axel libsasl2-dev seclists gobuster python2-dev python2 libldap2-dev libssl-dev kali-desktop-gnome terminator flameshot linux-headers-$(uname -r) xclip virtualenv python3-autopep8 python2-setuptools-whl python2-setuptools-whl -y
+   curl https://bootstrap.pypa.io/pip/2.7/get-pip.py | python2
    apt autoremove
 }
 
@@ -82,7 +82,7 @@ install_opt() {
    runuser -l $uservar -c "git clone https://github.com/galkan/crowbar.git /opt/crowbar"
    runuser -l $uservar -c "git clone https://github.com/BC-SECURITY/Empire.git /opt/empire"
    runuser -l $uservar -c "git clone https://github.com/ropnop/windapsearch.git /opt/windapsearch"
-   runuser -l $uservar -c "git clone https://github.com/mdsecactivebreach/SharpShooter.git"
+   runuser -l $uservar -c "git clone https://github.com/mdsecactivebreach/SharpShooter.git && cd SharpShooter && pip2 install -r requirements.txt && cd .."
    runuser -l $uservar -c "pip install python-ldap" 
    runuser -l $uservar -c "mkdir /opt/tunnel && git clone https://github.com/sensepost/reGeorg.git /opt/tunnel/reGeorg"
    chown -R $uservar: /opt
