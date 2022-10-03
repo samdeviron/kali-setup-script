@@ -99,6 +99,7 @@ install_sharpshooter() {
    echo "alias sharpshooter='source /opt/SharpShooter/sharpshooter-venv/bin/activate; python /opt/SharpShooter/SharpShooter.py'" >> /home/${uservar}/.bashrc
    echo "alias sharpshooter='source /opt/SharpShooter/sharpshooter-venv/bin/activate; python /opt/SharpShooter/SharpShooter.py'" >> /home/${uservar}/.zshrc
    deactivate
+   chown -R $uservar: /opt
 }
 
 install_impacket() {
