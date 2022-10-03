@@ -95,6 +95,7 @@ install_sharpshooter() {
    git clone https://github.com/mdsecactivebreach/SharpShooter.git
    cd SharpShooter
    pip install -r requirements.txt
+   chown -R $uservar: /opt
 }
 
 install_impacket() {
