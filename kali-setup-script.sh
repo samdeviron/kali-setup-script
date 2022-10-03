@@ -96,8 +96,8 @@ install_sharpshooter() {
    source sharpshooter-venv/bin/activate
    curl https://bootstrap.pypa.io/pip/2.7/get-pip.py | python
    pip install -r requirements.txt
-   echo "alias sharpshooter='source /opt/SharpShooter/sharpshooter-venv/bin/activate; python /opt/SharpShooter/sharpShooter.py'" >> /home/${uservar}/.bashrc
-   echo "alias sharpshooter='source /opt/SharpShooter/sharpshooter-venv/bin/activate; python /opt/SharpShooter/sharpShooter.py'" >> /home/${uservar}/.zshrc
+   echo "alias sharpshooter='source /opt/SharpShooter/sharpshooter-venv/bin/activate; python /opt/SharpShooter/SharpShooter.py'" >> /home/${uservar}/.bashrc
+   echo "alias sharpshooter='source /opt/SharpShooter/sharpshooter-venv/bin/activate; python /opt/SharpShooter/SharpShooter.py'" >> /home/${uservar}/.zshrc
    source sharpshooter-venv/bin/deactivate
 }
 
