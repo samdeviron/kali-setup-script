@@ -17,14 +17,6 @@ if [[ $EUID -ne 0 ]]; then
    echo "This script must be run as root" 
    exit 1
 fi
-
-if [ -z "$uservar" ]
-then
-   echo "Installing for user: $uservar"
-else
-   echo "What is the username you want to install this tools for?"
-   read uservar
-fi
    
 
 create_user() {
@@ -192,6 +184,16 @@ if [[ $create_everything_bool == "Y" ]]; then
    set_bashrc
    set_zshrc
 else
+
+   # Check if uservar is set
+   if [ -z "$uservar" ]
+   then
+      echo "Installing for user: $uservar"
+   else
+      echo "What is the username you want to install this tools for?"
+      read uservar
+   fi
+  
    # Install essentials?
    echo "Would you like to install essentials?"
    read -p 'Install essentials? (Y/N): ' install_essentials_bool
