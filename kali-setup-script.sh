@@ -18,6 +18,15 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+if [ -z "$uservar" ]
+then
+   echo "Installing for user: $uservar"
+else
+   echo "What is the username you want to install this tools for?"
+   read uservar
+fi
+   
+
 create_user() {
    # Ask the user for login details
    echo "Set your desired username and password"
